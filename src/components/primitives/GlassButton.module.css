@@ -1,0 +1,19 @@
+.btn {
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1;
+  padding: 7px 10px;
+  border-radius: 20px;
+  color: var(--ink);
+  border: 1px solid var(--glass-border);
+}
+
+/* Solid variant — filled with ink, inverted text (MENU / CLOSE / EMAIL). */
+.solid {
+  background: var(--ink);
+  color: var(--bg);
+  border: 1px solid var(--ink);
+  font-weight: 700;
+  padding: 7px 12px;
+}

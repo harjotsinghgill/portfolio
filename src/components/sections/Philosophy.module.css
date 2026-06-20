@@ -1,0 +1,24 @@
+.quote {
+  margin: 0;
+  font-size: clamp(30px, 5.5vw, 72px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+.quote em {
+  color: var(--accent);
+  font-style: italic;
+}
+.note {
+  margin-top: 36px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 520px;
+  line-height: 1.6;
+}
+.note strong {
+  color: var(--ink);
+  font-weight: 400;
+}

@@ -1,0 +1,32 @@
+.logo {
+  position: relative;
+  flex: none;
+  cursor: pointer;
+}
+.logo:hover .blade {
+  animation: spin 2.2s linear infinite;
+}
+
+.blade {
+  position: absolute;
+  inset: 3px;
+  border-radius: 4px;
+  background: var(--accent);
+}
+.blade.rotated {
+  transform: rotate(45deg);
+}
+.ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: scale(0.62);
+}
+.hole {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--cutout);
+  transform: scale(0.28);
+}

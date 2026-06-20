@@ -1,0 +1,40 @@
+/* ---------------------------------------------------------------------------
+   Design tokens — single source of truth for color, surface, and elevation.
+   Light is default; [data-theme="dark"] overrides. --accent is injected at
+   runtime by ThemeProvider so it can be driven from config / props.
+--------------------------------------------------------------------------- */
+:root {
+  --bg: #eceae3;
+  --ink: #16130f;
+  --muted: #8a847a;
+  --line: rgba(20, 16, 12, 0.16);
+  --card: #e3dfd5;
+  --accent: #ff5c00;
+
+  /* Glassmorphism surface — reused by every pill / card / button. */
+  --glass-bg: color-mix(in srgb, var(--bg) 50%, transparent);
+  --glass-border: color-mix(in srgb, var(--ink) 12%, transparent);
+  --glass-blur: blur(16px) saturate(1.6);
+  --glass-shadow: 0 6px 22px rgba(0, 0, 0, 0.07);
+  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+
+  /* Typography */
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "Space Mono", monospace;
+  --font-display: "Anton", var(--font-sans);
+
+  /* Layout */
+  --maxw: 1180px;
+  --gutter: 22px;
+
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #131110;
+  --ink: #eceae3;
+  --muted: #8e887e;
+  --line: rgba(236, 234, 227, 0.16);
+  --card: #1c1916;
+  color-scheme: dark;
+}
