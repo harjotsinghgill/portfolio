@@ -14,7 +14,7 @@ export function About() {
             A maker who treats software like hardware.
           </h2>
           <div className={styles.portrait}>
-            <span>[ drop portrait.jpg here ]</span>
+            <img src="/profile.png" alt="Harjot Singh Gill" className={styles.portraitImg} />
           </div>
         </div>
 
