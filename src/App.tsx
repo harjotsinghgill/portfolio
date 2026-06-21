@@ -36,9 +36,10 @@ export function App() {
         clock={clock}
         soundLabel={soundLabel}
         themeLabel={themeLabel}
+        menuOpen={menuOpen}
         onToggleSound={toggleSound}
         onToggleTheme={toggleTheme}
-        onOpenMenu={() => setMenuOpen(true)}
+        onToggleMenu={() => setMenuOpen((v) => !v)}
       />
 
       <MenuOverlay

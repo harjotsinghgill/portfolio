@@ -18,3 +18,41 @@
   align-items: center;
   gap: 8px;
 }
+
+.headerAbove {
+  z-index: 51;
+}
+
+.menuBtn {
+  overflow: hidden;
+}
+
+.menuBtnContent {
+  display: grid;
+  place-items: center;
+}
+
+.menuBtnContent > span {
+  grid-area: 1 / 1;
+  transition: opacity 0.22s ease, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* MENU slides up when hidden */
+.menuBtnContent > span:first-child {
+  --dir: -100%;
+}
+
+/* CLOSE slides down when hidden */
+.menuBtnContent > span:last-child {
+  --dir: 100%;
+}
+
+.labelIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.labelOut {
+  opacity: 0;
+  transform: translateY(var(--dir));
+}

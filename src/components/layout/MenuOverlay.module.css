@@ -10,11 +10,6 @@
   flex-direction: column;
   padding: 88px 22px 22px;
 }
-.close {
-  position: absolute;
-  top: 14px;
-  right: 22px;
-}
 .list {
   flex: 1;
   display: flex;

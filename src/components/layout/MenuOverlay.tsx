@@ -1,4 +1,3 @@
-import { GlassButton } from "../primitives/GlassButton";
 import type { NavItem } from "../../config";
 import styles from "./MenuOverlay.module.css";
 
@@ -13,9 +12,6 @@ export function MenuOverlay({ open, items, onClose }: MenuOverlayProps) {
   if (!open) return null;
   return (
     <nav className={styles.overlay}>
-      <GlassButton variant="solid" className={styles.close} onClick={onClose}>
-        CLOSE ✕
-      </GlassButton>
       <div className={styles.list}>
         {items.map((item) => (
           <a
