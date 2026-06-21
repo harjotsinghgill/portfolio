@@ -17,8 +17,8 @@ const PALETTE = [
   "#EC4899",
 ];
 
-const BOX = 122;
-const TOP = 60;
+const BOX = 200;
+const TOP = 0;
 const STEP_MS = 26;
 
 /** DVD-logo bounce physics; only ticks while `active`. */
@@ -28,7 +28,7 @@ export function useScreensaver(active: boolean): Sprite {
     y: 170,
     color: PALETTE[0],
   });
-  const vel = useRef({ vx: 2.4, vy: 1.9 });
+  const vel = useRef({ vx: 3.5, vy: 2.8 });
   const colorIndex = useRef(0);
 
   useEffect(() => {

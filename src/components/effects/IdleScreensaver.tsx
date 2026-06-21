@@ -1,23 +1,12 @@
 import type { CSSProperties } from "react";
 import { useScreensaver } from "../../hooks/useScreensaver";
+import { GearLogo } from "../primitives/GearLogo";
 
 interface IdleScreensaverProps {
   active: boolean;
 }
 
-const blade: CSSProperties = {
-  position: "absolute",
-  inset: 10,
-  borderRadius: 13,
-  background: "var(--sprite)",
-};
-const round: CSSProperties = {
-  position: "absolute",
-  inset: 0,
-  borderRadius: "50%",
-};
-
-/** Idle "DVD bounce" screensaver — a wandering aperture that recolors on hit. */
+/** Idle "DVD bounce" screensaver — a wandering 3D gear that recolors on hit. */
 export function IdleScreensaver({ active }: IdleScreensaverProps) {
   const sprite = useScreensaver(active);
   if (!active) return null;
@@ -53,17 +42,10 @@ export function IdleScreensaver({ active }: IdleScreensaverProps) {
             position: "absolute",
             left: sprite.x,
             top: sprite.y,
-            width: 100,
-            height: 100,
-            animation: "spin 6s linear infinite",
-            "--sprite": sprite.color,
           } as CSSProperties
         }
       >
-        <div style={blade} />
-        <div style={{ ...blade, transform: "rotate(45deg)" }} />
-        <div style={{ ...round, background: "var(--sprite)", transform: "scale(0.62)" }} />
-        <div style={{ ...round, background: "#0a0908", transform: "scale(0.28)" }} />
+        <GearLogo size={200} tint={sprite.color} autoSpin />
       </div>
     </div>
   );

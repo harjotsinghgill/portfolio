@@ -1,4 +1,4 @@
-import { Logo } from "../primitives/Logo";
+import { GearLogo } from "../primitives/GearLogo";
 import { footerSocials } from "../../config";
 import styles from "./Footer.module.css";
 
@@ -12,7 +12,7 @@ export function Footer({ ownerName }: FooterProps) {
       <div className={styles.grid}>
         <div>
           <div className={styles.brand}>
-            <Logo cutout="var(--card)" />
+            <GearLogo size={32} />
             <div className={styles.brandName}>
               {ownerName}
               <span style={{ color: "var(--accent)" }}>™</span>

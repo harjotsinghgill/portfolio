@@ -1,4 +1,4 @@
-import { Logo } from "../primitives/Logo";
+import { GearLogo } from "../primitives/GearLogo";
 import { Pill } from "../primitives/Pill";
 import { GlassButton } from "../primitives/GlassButton";
 import styles from "./Header.module.css";
@@ -22,7 +22,7 @@ export function Header({
 }: HeaderProps) {
   return (
     <header className={styles.header}>
-      <Logo />
+      <GearLogo />
       <div className={styles.controls}>
         <Pill dotColor="#2ec27e" blinkDot muted>
           {clock}
