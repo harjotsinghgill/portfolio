@@ -7,3 +7,7 @@
 .chip {
   font-size: 13px;
 }
+.chip:active {
+  transform: none !important;
+  box-shadow: var(--glass-shadow), var(--glass-inset);
+}

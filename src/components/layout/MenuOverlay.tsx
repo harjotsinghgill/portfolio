@@ -75,7 +75,24 @@ export function MenuOverlay({ open, items, onClose }: MenuOverlayProps) {
                 key={item.num}
                 className={styles.link}
                 href={item.href}
-                onClick={onClose}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onClose();
+                  // ponytail: 400ms matches exit animation (0.38s)
+                  setTimeout(() => {
+                    const el = document.querySelector(item.href);
+                    if (!el) return;
+                    const headerH =
+                      document.querySelector("header")?.offsetHeight ?? 0;
+                    window.scrollTo({
+                      top:
+                        el.getBoundingClientRect().top +
+                        window.scrollY -
+                        headerH,
+                      behavior: "smooth",
+                    });
+                  }, 400);
+                }}
                 variants={linkItem}
               >
                 <span className={styles.num}>{item.num}</span>
