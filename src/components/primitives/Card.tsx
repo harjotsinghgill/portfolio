@@ -1,4 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
+import styles from "./Card.module.css";
 
 interface CardProps {
   children: ReactNode;
@@ -28,7 +29,9 @@ export function Card({
   };
   return (
     <div
-      className={accent ? className : `glass ${className}`}
+      className={accent
+        ? `${styles.accent} ${className}`
+        : `glass ${styles.card} ${className}`}
       style={{
         borderRadius: radius,
         padding,

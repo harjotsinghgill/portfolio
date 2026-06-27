@@ -1,0 +1,15 @@
+/* Base glass hover is on .glass in global.css — only accent overrides here */
+.card { /* intentional — keeps className slot for future use */ }
+
+.accent {
+  transition: transform 0.24s ease, box-shadow 0.24s ease;
+  will-change: transform;
+}
+
+.accent:hover {
+  transform: translateY(-2px) scale(1.008);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent),
+    0 8px 24px color-mix(in srgb, var(--accent) 30%, transparent),
+    0 18px 40px color-mix(in srgb, var(--accent) 12%, transparent);
+}
