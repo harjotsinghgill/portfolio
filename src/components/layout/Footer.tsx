@@ -15,7 +15,6 @@ export function Footer({ ownerName }: FooterProps) {
             <GearLogo size={32} />
             <div className={styles.brandName}>
               {ownerName}
-              <span style={{ color: "var(--accent)" }}>™</span>
             </div>
           </div>
           <div className={styles.meta}>
@@ -47,9 +46,8 @@ export function Footer({ ownerName }: FooterProps) {
       </div>
 
       <div className={styles.legal}>
-        <span>© {ownerName} — ALL RIGHTS RESERVED</span>
         <span style={{ fontWeight: 700, color: "var(--ink)" }}>
-          Made with love by a 2001 kid
+          Made with love by a '01 kid
         </span>
       </div>
     </footer>
