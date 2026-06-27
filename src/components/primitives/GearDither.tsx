@@ -24,7 +24,7 @@ const CONFIG = {
 
   // Spin & drag
   spinSpeed: 0.003, // rad/frame on Z
-  dragSensitivity: 0.012, // rad/px
+  dragSensitivity: 0.005, // rad/px
 
   // Gear material
   metalness: 0.4,
@@ -89,7 +89,6 @@ export function GearDither({ className = "" }: GearDitherProps) {
     let lastDragY = 0;
     let velX = 0; // pitch (vertical drag → X rotation)
     let velY = 0; // yaw   (horizontal drag → Y rotation)
-    const DRAG_SENS = 0.022;
     const DECAY = 0.95;
 
     const onDown = (e: PointerEvent) => {
@@ -103,8 +102,8 @@ export function GearDither({ className = "" }: GearDitherProps) {
     };
     const onMove = (e: PointerEvent) => {
       if (!dragActive) return;
-      velY += (e.clientX - lastDragX) * DRAG_SENS;
-      velX += (e.clientY - lastDragY) * DRAG_SENS;
+      velY += (e.clientX - lastDragX) * CONFIG.dragSensitivity;
+      velX += (e.clientY - lastDragY) * CONFIG.dragSensitivity;
       lastDragX = e.clientX;
       lastDragY = e.clientY;
     };

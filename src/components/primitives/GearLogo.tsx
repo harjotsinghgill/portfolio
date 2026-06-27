@@ -14,6 +14,7 @@ interface GearLogoProps {
 
 const REST_SPEED = 0.4;
 const HOVER_SPEED = 2.5;
+const DRAG_SENSITIVITY = 0.005; // rad/px
 
 export function GearLogo({
   size = 80,
@@ -200,8 +201,8 @@ export function GearLogo({
       }}
       onPointerMove={(e) => {
         if (!dragRef.current) return;
-        velYRef.current += (e.clientX - lastXRef.current) * 0.03;
-        velXRef.current += (e.clientY - lastYRef.current) * 0.03;
+        velYRef.current += (e.clientX - lastXRef.current) * DRAG_SENSITIVITY;
+        velXRef.current += (e.clientY - lastYRef.current) * DRAG_SENSITIVITY;
         lastXRef.current = e.clientX;
         lastYRef.current = e.clientY;
       }}
