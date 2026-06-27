@@ -36,7 +36,7 @@ export function About() {
         <div className={`${styles.card} ${styles.profile}`}>
           <div className={styles.portraitWrap}>
             <div className={styles.portrait}>
-              <img src="/profile.png" alt={site.ownerFullName} />
+              <img src={`${import.meta.env.BASE_URL}profile.png`} alt={site.ownerFullName} />
             </div>
             <CurvedBadge />
           </div>

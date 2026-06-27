@@ -18,7 +18,7 @@ const DRAG_SENSITIVITY = 0.005; // rad/px
 
 export function GearLogo({
   size = 80,
-  src = "/simple_gear.glb",
+  src = `${import.meta.env.BASE_URL}simple_gear.glb`,
   tint,
   autoSpin = false,
 }: GearLogoProps) {

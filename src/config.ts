@@ -76,7 +76,7 @@ export const experience: Experience[] = [
       "TS · SOLIDITY · GO · PYTHON",
     ],
     url: "https://redbelly.network",
-    logo: "/Redbelly_Isotype-Red.svg",
+    logo: `${import.meta.env.BASE_URL}Redbelly_Isotype-Red.svg`,
   },
 ];
 

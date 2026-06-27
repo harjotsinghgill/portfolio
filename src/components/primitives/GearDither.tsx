@@ -161,7 +161,7 @@ export function GearDither({ className = "" }: GearDitherProps) {
     let loaded = false;
     let angle = 0;
 
-    new GLTFLoader().load("/simple_gear.glb", (gltf) => {
+    new GLTFLoader().load(`${import.meta.env.BASE_URL}simple_gear.glb`, (gltf) => {
       if (disposed) return;
       const model = gltf.scene;
       model.traverse((obj) => {
