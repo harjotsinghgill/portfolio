@@ -11,7 +11,7 @@ export function Footer() {
             <GearLogo size={48} tint={site.accentColor} />
           </div>
           <div className={styles.meta}>
-            Earth · GMT+offset
+            Earth · GMT+5:30
             <br />
             Building from a small desk
             <br />
