@@ -26,10 +26,10 @@ export function Hero({ uptime }: HeroProps) {
         </h1>
 
         <p className={styles.lead}>
-          Full-stack engineer who lives on the user-facing edge — obsessed with the
-          last 10% everyone else skips. I move fast across the whole stack, lean
-          hard on AI to learn faster, and rebuild tactile, knob-turning tech for
-          the screen you're holding.
+          Full-stack engineer living at the intersection of DeFi infrastructure
+          and deliberate UI. I wire cross-chain bridges before lunch and obsess
+          over pixel gaps after — somehow it's the same job. I move fast, lean
+          on AI, and refuse to ship anything that feels like everyone else's work.
         </p>
 
         <div className={styles.badges}>

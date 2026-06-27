@@ -1,6 +1,7 @@
 import { GearLogo } from "../primitives/GearLogo";
 import { Pill } from "../primitives/Pill";
 import { GlassButton } from "../primitives/GlassButton";
+import { site } from "../../config";
 import styles from "./Header.module.css";
 
 interface HeaderProps {
@@ -8,6 +9,7 @@ interface HeaderProps {
   soundLabel: string;
   themeLabel: string;
   menuOpen: boolean;
+  showSound: boolean;
   onToggleSound: () => void;
   onToggleTheme: () => void;
   onToggleMenu: () => void;
@@ -18,20 +20,23 @@ export function Header({
   soundLabel,
   themeLabel,
   menuOpen,
+  showSound,
   onToggleSound,
   onToggleTheme,
   onToggleMenu,
 }: HeaderProps) {
   return (
     <header className={`${styles.header} ${menuOpen ? styles.headerAbove : ""}`}>
-      <GearLogo />
+      <GearLogo tint={site.accentColor} />
       <div className={styles.controls}>
         <Pill dotColor="#2ec27e" blinkDot muted>
           {clock}
         </Pill>
-        <GlassButton onClick={onToggleSound} aria-label="Toggle ambient sound">
-          ♪ {soundLabel}
-        </GlassButton>
+        {showSound && (
+          <GlassButton onClick={onToggleSound} aria-label="Toggle ambient sound">
+            ♪ {soundLabel}
+          </GlassButton>
+        )}
         <GlassButton onClick={onToggleTheme} aria-label="Toggle color theme">
           ◐ {themeLabel}
         </GlassButton>

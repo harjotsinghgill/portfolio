@@ -57,16 +57,17 @@ export function About() {
         <div className={styles.col}>
           <div className={`glass ${styles.card}`}>
             <p className={styles.bio}>
-              Full-stack engineer who treats software like hardware. I grew up
-              taking apart the things that beeped — calculators, the family
-              Walkman — and that curiosity moved into the browser. I build{" "}
-              <span className={styles.hl}>user-facing experiences</span> that
-              feel as deliberate as a well-machined dial.
+              Full-stack engineer who got into Web3 and forgot to leave. Started
+              by pulling apart calculators as a kid, upgraded to smart contracts,
+              and somewhere in between audited 72 LayerZero DVN pathways
+              post-incident at 2am. The curiosity never stopped —{" "}
+              <span className={styles.hl}>it just costs more in gas fees now.</span>
             </p>
             <p className={`${styles.bio} ${styles.muted}`}>
-              My favorite work lives where engineering meets craft:
-              micro-interactions you can feel, type that earns its size, and
-              interfaces that respond like instruments.
+              My best work lives where DeFi infrastructure meets the interface on
+              top of it — DEX backends, cross-chain bridges, OTC flows — and then
+              turning around and making the frontend feel like someone actually
+              cared. Because someone did.
             </p>
           </div>
 

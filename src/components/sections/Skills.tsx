@@ -8,7 +8,7 @@ export function Skills() {
   return (
     <Section id="skills">
       <SectionLabel style={{ marginBottom: 32 }}>
-        03 / SKILLS — THE TOOLBOX
+        04 / SKILLS — THE TOOLBOX
       </SectionLabel>
       <div className={styles.grid}>
         {skills.map((skill) => (

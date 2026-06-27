@@ -16,6 +16,7 @@ import { Marquee } from "./components/primitives/Marquee";
 import { Hero } from "./components/sections/Hero";
 import { About } from "./components/sections/About";
 import { Experience } from "./components/sections/Experience";
+import { Projects } from "./components/sections/Projects";
 import { Skills } from "./components/sections/Skills";
 import { Philosophy } from "./components/sections/Philosophy";
 import { Connect } from "./components/sections/Connect";
@@ -37,6 +38,7 @@ export function App() {
         soundLabel={soundLabel}
         themeLabel={themeLabel}
         menuOpen={menuOpen}
+        showSound={site.enableSound}
         onToggleSound={toggleSound}
         onToggleTheme={toggleTheme}
         onToggleMenu={() => setMenuOpen((v) => !v)}
@@ -60,14 +62,15 @@ export function App() {
         }}
       >
         <Marquee words={marqueeWords} />
-        <About />
-        <Experience />
-        <Skills />
-        <Philosophy />
-        <Connect />
+        {site.sections.about && <About />}
+        {site.sections.experience && <Experience />}
+        {site.sections.projects && <Projects />}
+        {site.sections.skills && <Skills />}
+        {site.sections.philosophy && <Philosophy />}
+        {site.sections.connect && <Connect />}
       </main>
 
-      <Footer ownerName={site.ownerName} />
+      <Footer />
 
       <SecretToast show={secret} />
       <IdleScreensaver active={idle} />

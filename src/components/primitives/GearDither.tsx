@@ -2,9 +2,10 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import styles from "./GearDither.module.css";
+import { site } from "../../config";
 
 // ─── Tweak everything here ────────────────────────────────────────────────
-const CONFIG = {
+const CONFIG = {  
   size: 1500, // canvas px (width = height)
 
   // Dither grid
@@ -12,7 +13,7 @@ const CONFIG = {
   char: "*", // stamp character
 
   // Single base color — 4 intensity steps auto-generated
-  baseColor: "#555",
+  baseColor: site.accentColor,
   // Multiplies the opacity of each step — higher = punchier shadows (1.0 = subtle, 2.0 = full contrast)
   intensityScale: 1,
   // Gamma < 1 brightens — pushes near-lit faces to level 4, removes Bayer noise on flat surfaces

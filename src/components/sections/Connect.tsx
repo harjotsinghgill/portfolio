@@ -6,7 +6,7 @@ import styles from "./Connect.module.css";
 export function Connect() {
   return (
     <Section id="connect" padding="90px 0">
-      <SectionLabel style={{ marginBottom: 26 }}>05 / CONNECT</SectionLabel>
+      <SectionLabel style={{ marginBottom: 26 }}>06 / CONNECT</SectionLabel>
       <h2 className={styles.heading}>
         Let's make
         <br />

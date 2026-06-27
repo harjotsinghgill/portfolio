@@ -1,18 +1,14 @@
 import { GearLogo } from "../primitives/GearLogo";
-import { footerSocials } from "../../config";
+import { footerSocials, site } from "../../config";
 import styles from "./Footer.module.css";
 
-interface FooterProps {
-  ownerName: string;
-}
-
-export function Footer({ ownerName }: FooterProps) {
+export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.grid}>
         <div>
           <div className={styles.brand}>
-            <GearLogo size={32} />
+            <GearLogo size={48} tint={site.accentColor} />
           </div>
           <div className={styles.meta}>
             Earth · GMT+offset

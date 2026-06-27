@@ -5,7 +5,7 @@ import styles from "./Philosophy.module.css";
 export function Philosophy() {
   return (
     <Section id="philosophy" padding="90px 0">
-      <SectionLabel>04 / PHILOSOPHY</SectionLabel>
+      <SectionLabel>05 / PHILOSOPHY</SectionLabel>
       <blockquote className={styles.quote}>
         Make it work. Make it fast.
         <br />
@@ -13,8 +13,10 @@ export function Philosophy() {
       </blockquote>
       <div className={styles.note}>
         Good software is invisible. Great software is invisible{" "}
-        <strong>and</strong> unforgettable — it leaves a fingerprint you can't
-        quite name. That tension is the whole job.
+        <strong>and</strong> makes you wonder how it works. I've spent three
+        years at the edge where blockchain infrastructure meets the browser —
+        and the job is always the same: make something that feels inevitable.
+        The gnarly parts are just the cover charge.
       </div>
     </Section>
   );

@@ -6,15 +6,24 @@
 --------------------------------------------------------------------------- */
 
 export const site = {
-  accentColor: "#FF5C00",
+  accentColor: "#ff6600",
   ownerName: "HSG",
   ownerFullName: "Harjot Singh Gill",
   /** Idle timeout (seconds) before the screensaver kicks in. */
-  idleSeconds: 18,
-  /** Enable the Web Audio glitch ambience. */
-  enableSound: true,
+  idleSeconds: 30,
+  /** Enable the Web Audio glitch ambience + show the sound toggle button. */
+  enableSound: false,
   /** Drives the live clock's "uptime" counter. */
   birthDate: "2001-01-01T00:00:00",
+  /** Toggle individual sections on/off. */
+  sections: {
+    about: true,
+    experience: true,
+    projects: true,
+    skills: true,
+    philosophy: true,
+    connect: true,
+  },
 } as const;
 
 export interface NavItem {
@@ -26,9 +35,10 @@ export interface NavItem {
 export const navItems: NavItem[] = [
   { num: "01", label: "ABOUT", href: "#about" },
   { num: "02", label: "EXPERIENCE", href: "#work" },
-  { num: "03", label: "SKILLS", href: "#skills" },
-  { num: "04", label: "PHILOSOPHY", href: "#philosophy" },
-  { num: "05", label: "CONNECT", href: "#connect" },
+  { num: "03", label: "PROJECTS", href: "#projects" },
+  { num: "04", label: "SKILLS", href: "#skills" },
+  { num: "05", label: "PHILOSOPHY", href: "#philosophy" },
+  { num: "06", label: "CONNECT", href: "#connect" },
 ];
 
 export interface Stat {
@@ -39,7 +49,7 @@ export interface Stat {
 export const stats: Stat[] = [
   { value: "2001", label: "BORN — RUNNING SINCE" },
   { value: "3 yrs", label: "SHIPPING IN PRODUCTION" },
-  { value: "FS", label: "FULL-STACK · AI-ENABLED" },
+  { value: "9", label: "CHAINS BRIDGED (AND COUNTING)" },
   { value: "0", label: "UGLY GRADIENTS SHIPPED" },
 ];
 
@@ -56,11 +66,15 @@ export interface Experience {
 export const experience: Experience[] = [
   {
     period: "2023 — NOW",
-    role: "Full-Stack Engineer",
+    role: "Associate Software Engineer",
     company: "Redbelly Network",
     blurb:
-      "Building end to end on a high-performance, compliance-ready blockchain network — user-facing features, the services behind them, and the glue between. Front of the stack to the database, shipping in production.",
-    tags: ["3 YRS IN PRODUCTION", "FRONTEND → BACKEND → DB", "GO · SOLIDITY · TYPESCRIPT"],
+      "Wired LayerZero V2 across 7 EVM chains and Solana mainnet. Built a Uniswap-compatible DEX backend from scratch. Shipped Airswap OTC RFQ flows, audited 72 DVN pathways post-incident, and authored the AI coding ruleset the whole team now lives by. Somehow still employed.",
+    tags: [
+      "LAYERZERO V2 · CROSS-CHAIN",
+      "DEX · OTC · DEFI INFRA",
+      "TS · SOLIDITY · GO · PYTHON",
+    ],
     url: "https://redbelly.network",
     logo: "/Redbelly_Isotype-Red.svg",
   },
@@ -76,23 +90,51 @@ export const skills: Skill[] = [
   { label: "TypeScript" },
   { label: "React" },
   { label: "Next.js" },
-  { label: "CSS / Motion" },
-  { label: "WebGL / Canvas" },
-  { label: "Node" },
+  { label: "Node.js" },
+  { label: "Express" },
+  { label: "Python" },
+  { label: "FastAPI" },
   { label: "Go" },
   { label: "Solidity" },
-  { label: "Figma" },
-  { label: "Design Systems" },
+  { label: "LayerZero V2" },
+  { label: "EVM + Solana" },
+  { label: "ethers.js" },
+  { label: "wagmi" },
+  { label: "PostgreSQL" },
+  { label: "MongoDB" },
+  { label: "Docker" },
+  { label: "GH Actions" },
+  { label: "CSS / Motion" },
+  { label: "WebGL / Canvas" },
   { label: "Web Audio" },
   { label: "+ Taste ✳", accent: true },
 ];
 
-export const marqueeWords = [
-  "DESIGN",
-  "ENGINEER",
-  "PROTOTYPE",
-  "SHIP",
-  "DELIGHT",
+export const marqueeWords = ["DESIGN", "ENGINEER", "BRIDGE", "SHIP", "DELIGHT"];
+
+export interface Project {
+  year: string;
+  name: string;
+  blurb: string;
+  tags: string[];
+  url?: string;
+}
+
+export const projects: Project[] = [
+  {
+    year: "2024",
+    name: "Automated Job Aggregation + Alerting",
+    blurb:
+      "Backend that scrapes 5+ job platforms, filters by keyword, persists listings, and fires alerts on a schedule. Built to scratch an itch — jobs should come to you, not the other way around.",
+    tags: ["Python", "FastAPI", "Supabase", "GitHub Actions"],
+  },
+  {
+    year: "2024",
+    name: "AI Resume Optimizer",
+    blurb:
+      "Full-stack app that matches your resume against a job description using LLM embeddings. Added guardrails so it can't hallucinate skills you don't have. Yes, that's a feature, not a bug.",
+    tags: ["FastAPI", "React", "LLM Embeddings", "Python"],
+  },
 ];
 
 export interface SocialLink {
@@ -102,16 +144,16 @@ export interface SocialLink {
 
 /** Primary CTA buttons in the Connect section. */
 export const connectLinks: SocialLink[] = [
-  { label: "EMAIL ME ↗", href: "mailto:hello@example.com" },
-  { label: "GITHUB", href: "#" },
-  { label: "LINKEDIN", href: "#" },
-  { label: "READ.CV", href: "#" },
+  { label: "EMAIL ME ↗", href: "mailto:harjotsinghgill007@gmail.com" },
+  { label: "GITHUB ↗", href: "https://github.com/harjotsinghgill" },
+  { label: "LINKEDIN ↗", href: "https://linkedin.com/in/harjotsinghgill007" },
+  { label: "READ.CV ↗", href: "#" },
 ];
 
 /** Footer social column. */
 export const footerSocials: SocialLink[] = [
-  { label: "→ GitHub", href: "#" },
-  { label: "→ LinkedIn", href: "#" },
+  { label: "→ GitHub", href: "https://github.com/harjotsinghgill" },
+  { label: "→ LinkedIn", href: "https://linkedin.com/in/harjotsinghgill007" },
   { label: "→ Twitter / X", href: "#" },
   { label: "→ Read.cv", href: "#" },
 ];
