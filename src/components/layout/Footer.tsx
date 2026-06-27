@@ -13,9 +13,6 @@ export function Footer({ ownerName }: FooterProps) {
         <div>
           <div className={styles.brand}>
             <GearLogo size={32} />
-            <div className={styles.brandName}>
-              {ownerName}
-            </div>
           </div>
           <div className={styles.meta}>
             Earth · GMT+offset
@@ -39,9 +36,6 @@ export function Footer({ ownerName }: FooterProps) {
           <span className={styles.colHead}>COLOPHON</span>
           <span>Helvetica + Space Mono</span>
           <span>No templates harmed</span>
-          <span style={{ color: "var(--accent)" }}>
-            There's a hidden surprise — go idle to find it
-          </span>
         </div>
       </div>
 
