@@ -147,7 +147,7 @@ export const connectLinks: SocialLink[] = [
   { label: "EMAIL ME ↗", href: "mailto:harjotsinghgill007@gmail.com" },
   { label: "GITHUB ↗", href: "https://github.com/harjotsinghgill" },
   { label: "LINKEDIN ↗", href: "https://linkedin.com/in/harjotsinghgill007" },
-  { label: "READ.CV ↗", href: "#" },
+  { label: "RÉSUMÉ ↗", href: `${import.meta.env.BASE_URL}resume.pdf` },
 ];
 
 /** Footer social column. */
@@ -155,5 +155,5 @@ export const footerSocials: SocialLink[] = [
   { label: "→ GitHub", href: "https://github.com/harjotsinghgill" },
   { label: "→ LinkedIn", href: "https://linkedin.com/in/harjotsinghgill007" },
   { label: "→ Twitter / X", href: "#" },
-  { label: "→ Read.cv", href: "#" },
+  { label: "→ Résumé", href: `${import.meta.env.BASE_URL}resume.pdf` },
 ];
