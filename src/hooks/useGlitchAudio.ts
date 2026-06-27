@@ -14,7 +14,10 @@ class GlitchEngine {
   private glitchTimer = 0;
 
   start() {
-    const AC = window.AudioContext || (window as any).webkitAudioContext;
+    const AC =
+      window.AudioContext ||
+      (window as Window & { webkitAudioContext?: typeof AudioContext })
+        .webkitAudioContext;
     if (!AC) return;
     const ac: AudioContext = new AC();
     this.ac = ac;
@@ -95,7 +98,8 @@ class GlitchEngine {
       o.type = Math.random() < 0.5 ? "square" : "sine";
       const scale = [523.25, 587.33, 698.46, 783.99, 1046.5, 1318.5, 1567.98];
       o.frequency.value =
-        scale[(Math.random() * scale.length) | 0] * (Math.random() < 0.25 ? 2 : 1);
+        scale[(Math.random() * scale.length) | 0] *
+        (Math.random() < 0.25 ? 2 : 1);
       o.connect(out);
       o.start(t);
       o.stop(t + dur + 0.02);
@@ -121,9 +125,12 @@ class GlitchEngine {
 
     // Occasional quick stutter repeat.
     if (Math.random() < 0.16)
-      window.setTimeout(() => {
-        if (this.alive) this.glitch();
-      }, 38 + Math.random() * 70);
+      window.setTimeout(
+        () => {
+          if (this.alive) this.glitch();
+        },
+        38 + Math.random() * 70
+      );
   }
 
   stop() {

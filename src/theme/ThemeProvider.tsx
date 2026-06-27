@@ -64,7 +64,7 @@ export function ThemeProvider({ accent, children }: ThemeProviderProps) {
 
   const toggleTheme = useCallback(
     () => setTheme((t) => (t === "light" ? "dark" : "light")),
-    [],
+    []
   );
 
   const value = useMemo<ThemeContextValue>(
@@ -73,16 +73,15 @@ export function ThemeProvider({ accent, children }: ThemeProviderProps) {
       toggleTheme,
       themeLabel: theme === "light" ? "DARK" : "LIGHT",
     }),
-    [theme, toggleTheme],
+    [theme, toggleTheme]
   );
 
   return (
-    <ThemeContext.Provider value={value}>
-      {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useTheme(): ThemeContextValue {
   const ctx = useContext(ThemeContext);
   if (!ctx) throw new Error("useTheme must be used within <ThemeProvider>");

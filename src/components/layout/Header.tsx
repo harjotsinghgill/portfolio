@@ -7,7 +7,6 @@ import styles from "./Header.module.css";
 interface HeaderProps {
   clock: string;
   soundLabel: string;
-  themeLabel: string;
   menuOpen: boolean;
   showSound: boolean;
   onToggleSound: () => void;
@@ -18,7 +17,6 @@ interface HeaderProps {
 export function Header({
   clock,
   soundLabel,
-  themeLabel,
   menuOpen,
   showSound,
   onToggleSound,
@@ -26,14 +24,19 @@ export function Header({
   onToggleMenu,
 }: HeaderProps) {
   return (
-    <header className={`${styles.header} ${menuOpen ? styles.headerAbove : ""}`}>
+    <header
+      className={`${styles.header} ${menuOpen ? styles.headerAbove : ""}`}
+    >
       <GearLogo tint={site.accentColor} />
       <div className={styles.controls}>
         <Pill dotColor="#2ec27e" blinkDot muted>
           {clock}
         </Pill>
         {showSound && (
-          <GlassButton onClick={onToggleSound} aria-label="Toggle ambient sound">
+          <GlassButton
+            onClick={onToggleSound}
+            aria-label="Toggle ambient sound"
+          >
             ♪ {soundLabel}
           </GlassButton>
         )}
@@ -47,8 +50,12 @@ export function Header({
           aria-label={menuOpen ? "Close menu" : "Open menu"}
         >
           <span className={styles.menuBtnContent}>
-            <span className={menuOpen ? styles.labelOut : styles.labelIn}>≡</span>
-            <span className={menuOpen ? styles.labelIn : styles.labelOut}>✕</span>
+            <span className={menuOpen ? styles.labelOut : styles.labelIn}>
+              ≡
+            </span>
+            <span className={menuOpen ? styles.labelIn : styles.labelOut}>
+              ✕
+            </span>
           </span>
         </GlassButton>
       </div>

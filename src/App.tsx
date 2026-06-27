@@ -22,7 +22,7 @@ import { Philosophy } from "./components/sections/Philosophy";
 import { Connect } from "./components/sections/Connect";
 
 export function App() {
-  const { themeLabel, toggleTheme } = useTheme();
+  const { toggleTheme } = useTheme();
   const { clock, uptime } = useLiveStats(site.birthDate);
   const idle = useIdle(site.idleSeconds);
   const secret = useKonami();
@@ -36,7 +36,6 @@ export function App() {
       <Header
         clock={clock}
         soundLabel={soundLabel}
-        themeLabel={themeLabel}
         menuOpen={menuOpen}
         showSound={site.enableSound}
         onToggleSound={toggleSound}
