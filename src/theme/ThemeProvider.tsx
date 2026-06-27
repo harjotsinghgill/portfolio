@@ -5,7 +5,6 @@ import {
   useEffect,
   useMemo,
   useState,
-  type CSSProperties,
   type ReactNode,
 } from "react";
 
@@ -38,11 +37,20 @@ interface ThemeProviderProps {
 }
 
 export function ThemeProvider({ accent, children }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const [theme, setTheme] = useState<Theme>(() => {
+    const t = getInitialTheme();
+    document.documentElement.setAttribute("data-theme", t);
+    return t;
+  });
 
   useEffect(() => {
     window.localStorage.setItem(STORAGE_KEY, theme);
+    document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
+
+  useEffect(() => {
+    document.documentElement.style.setProperty("--accent", accent);
+  }, [accent]);
 
   const toggleTheme = useCallback(
     () => setTheme((t) => (t === "light" ? "dark" : "light")),
@@ -60,12 +68,7 @@ export function ThemeProvider({ accent, children }: ThemeProviderProps) {
 
   return (
     <ThemeContext.Provider value={value}>
-      <div
-        data-theme={theme}
-        style={{ "--accent": accent } as CSSProperties}
-      >
-        {children}
-      </div>
+      {children}
     </ThemeContext.Provider>
   );
 }

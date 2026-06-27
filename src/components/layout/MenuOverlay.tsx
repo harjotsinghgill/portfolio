@@ -27,7 +27,6 @@ export function MenuOverlay({ open, items, onClose }: MenuOverlayProps) {
       </div>
       <div className={styles.footer}>
         <span>// NAVIGATE WITH INTENT</span>
-        <span>SINCE 2001</span>
       </div>
     </nav>
   );
