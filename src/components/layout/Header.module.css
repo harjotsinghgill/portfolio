@@ -12,6 +12,7 @@
   background: color-mix(in srgb, var(--bg) 86%, transparent);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 .controls {
   display: flex;
@@ -19,8 +20,23 @@
   gap: 8px;
 }
 
+/* Fade transitions on all direct header children + control chips */
+.header > *,
+.controls > * {
+  transition: opacity 0.25s ease;
+}
+
 .headerAbove {
   z-index: 51;
+  background: transparent;
+  border-bottom-color: transparent;
+}
+
+/* Hide logo and all chips except the menu button when menu is open */
+.headerAbove > *:first-child,
+.headerAbove .controls > *:not(.menuBtn) {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .menuBtn {
