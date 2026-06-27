@@ -48,6 +48,8 @@ export function App() {
         onClose={() => setMenuOpen(false)}
       />
 
+      <Hero uptime={uptime} />
+
       <main
         style={{
           position: "relative",
@@ -57,7 +59,6 @@ export function App() {
           padding: "0 var(--gutter)",
         }}
       >
-        <Hero uptime={uptime} />
         <Marquee words={marqueeWords} />
         <About />
         <Experience />
