@@ -60,7 +60,14 @@
 }
 
 @media (max-width: 720px) {
+  .footer {
+    overflow-x: hidden;
+  }
   .grid {
     grid-template-columns: 1fr;
+    padding: 32px 16px;
+  }
+  .legal {
+    padding: 18px 16px;
   }
 }

@@ -38,7 +38,7 @@ export function Header({
           </GlassButton>
         )}
         <GlassButton onClick={onToggleTheme} aria-label="Toggle color theme">
-          ◐ {themeLabel}
+          ◐
         </GlassButton>
         <GlassButton
           variant="solid"
@@ -47,12 +47,8 @@ export function Header({
           aria-label={menuOpen ? "Close menu" : "Open menu"}
         >
           <span className={styles.menuBtnContent}>
-            <span className={menuOpen ? styles.labelOut : styles.labelIn}>
-              MENU ≡
-            </span>
-            <span className={menuOpen ? styles.labelIn : styles.labelOut}>
-              CLOSE ✕
-            </span>
+            <span className={menuOpen ? styles.labelOut : styles.labelIn}>≡</span>
+            <span className={menuOpen ? styles.labelIn : styles.labelOut}>✕</span>
           </span>
         </GlassButton>
       </div>

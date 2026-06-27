@@ -42,7 +42,7 @@ export function Hero({ uptime }: HeroProps) {
         </div>
 
         <div className={styles.scroll}>
-          ↓ SCROLL &nbsp;·&nbsp; psst — stop touching the mouse for a sec and watch.
+          ↓ SCROLL<span className={styles.scrollHint}>&nbsp;·&nbsp; psst — stop touching the mouse for a sec and watch.</span>
         </div>
       </div>
 
