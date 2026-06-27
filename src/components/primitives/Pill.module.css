@@ -7,6 +7,13 @@
   font-size: 12px;
   line-height: 1;
   color: var(--ink);
+  cursor: default;
+}
+
+/* Pills are display-only — suppress the .glass hover lift */
+.pill:hover {
+  transform: none;
+  box-shadow: var(--glass-shadow), var(--glass-inset);
 }
 .pill.muted {
   color: var(--muted);

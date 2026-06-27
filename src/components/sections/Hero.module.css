@@ -18,7 +18,8 @@
 }
 
 .gearBg {
-  /* scale: 1.5; */
+  flex: 0 0 auto;
+  width: clamp(260px, 32%, 520px);
 }
 .meta {
   font-family: var(--font-mono);
@@ -76,6 +77,7 @@
     overflow: hidden;
   }
   .inner {
+    min-width: 0;
     width: 100%;
     max-width: 100%;
     overflow-wrap: break-word;
