@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { useScreensaver } from "../../hooks/useScreensaver";
+import { GEAR_PAD, useScreensaver } from "../../hooks/useScreensaver";
 import { GearLogo } from "../primitives/GearLogo";
 
 interface IdleScreensaverProps {
@@ -40,12 +40,13 @@ export function IdleScreensaver({ active }: IdleScreensaverProps) {
         style={
           {
             position: "absolute",
-            left: sprite.x,
-            top: sprite.y,
+            // sprite x/y are visual coords; offset by -GEAR_PAD so transparent canvas border goes off-screen
+            left: sprite.x - GEAR_PAD,
+            top: sprite.y - GEAR_PAD,
           } as CSSProperties
         }
       >
-        <GearLogo size={200} tint={sprite.color} autoSpin />
+        <GearLogo size={200} autoSpin />
       </div>
     </div>
   );

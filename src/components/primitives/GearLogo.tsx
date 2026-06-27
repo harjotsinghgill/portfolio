@@ -13,7 +13,7 @@ interface GearLogoProps {
 }
 
 const REST_SPEED = 0.4;
-const HOVER_SPEED = 4.5;
+const HOVER_SPEED = 2.5;
 
 export function GearLogo({
   size = 80,
