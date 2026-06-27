@@ -49,6 +49,8 @@ export interface Experience {
   company: string;
   blurb: string;
   tags: string[];
+  url?: string;
+  logo?: string;
 }
 
 export const experience: Experience[] = [
@@ -59,6 +61,8 @@ export const experience: Experience[] = [
     blurb:
       "Building end to end on a high-performance, compliance-ready blockchain network — user-facing features, the services behind them, and the glue between. Front of the stack to the database, shipping in production.",
     tags: ["3 YRS IN PRODUCTION", "FRONTEND → BACKEND → DB", "GO · SOLIDITY · TYPESCRIPT"],
+    url: "https://redbelly.network",
+    logo: "/Redbelly_Isotype-Red.svg",
   },
 ];
 
