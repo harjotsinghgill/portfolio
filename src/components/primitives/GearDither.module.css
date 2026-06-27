@@ -3,6 +3,8 @@
   width: 100%;
   height: auto;
   mix-blend-mode: subtract;
-  pointer-events: none;
+  pointer-events: auto;
   user-select: none;
+  cursor: grab;
+  touch-action: none;
 }

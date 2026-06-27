@@ -19,7 +19,6 @@
 
 .gearBg {
   /* scale: 1.5; */
-  pointer-events: none;
 }
 .meta {
   font-family: var(--font-mono);

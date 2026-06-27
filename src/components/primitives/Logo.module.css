@@ -1,7 +1,7 @@
 .logo {
   position: relative;
   flex: none;
-  cursor: pointer;
+  cursor: grab;
 }
 .logo:hover .blade {
   animation: spin 2.2s linear infinite;

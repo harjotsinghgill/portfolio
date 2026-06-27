@@ -16,7 +16,7 @@ const CONFIG = {
   // Multiplies the opacity of each step — higher = punchier shadows (1.0 = subtle, 2.0 = full contrast)
   intensityScale: 1,
   // Gamma < 1 brightens — pushes near-lit faces to level 4, removes Bayer noise on flat surfaces
-  gamma: 0.9,
+  gamma: 1,
 
   // Default 3-D tilt (degrees)
   tiltX: -25,
@@ -82,6 +82,41 @@ export function GearDither({ className = "" }: GearDitherProps) {
     if (!out) return;
     const ctx = out.getContext("2d");
     if (!ctx) return;
+
+    // drag state
+    let dragActive = false;
+    let lastDragX = 0;
+    let lastDragY = 0;
+    let velX = 0; // pitch (vertical drag → X rotation)
+    let velY = 0; // yaw   (horizontal drag → Y rotation)
+    const DRAG_SENS = 0.022;
+    const DECAY = 0.95;
+
+    const onDown = (e: PointerEvent) => {
+      dragActive = true;
+      lastDragX = e.clientX;
+      lastDragY = e.clientY;
+      velX = 0;
+      velY = 0;
+      out.setPointerCapture(e.pointerId);
+      out.style.cursor = "grabbing";
+    };
+    const onMove = (e: PointerEvent) => {
+      if (!dragActive) return;
+      velY += (e.clientX - lastDragX) * DRAG_SENS;
+      velX += (e.clientY - lastDragY) * DRAG_SENS;
+      lastDragX = e.clientX;
+      lastDragY = e.clientY;
+    };
+    const onUp = () => {
+      dragActive = false;
+      out.style.cursor = "grab";
+    };
+
+    out.addEventListener("pointerdown", onDown);
+    out.addEventListener("pointermove", onMove);
+    out.addEventListener("pointerup", onUp);
+    out.addEventListener("pointercancel", onUp);
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
@@ -155,6 +190,15 @@ export function GearDither({ className = "" }: GearDitherProps) {
       raf = requestAnimationFrame(tick);
       if (!loaded) return;
 
+      if (dragActive) {
+        velX *= 0.78;
+        velY *= 0.78;
+      } else {
+        velX *= DECAY;
+        velY *= DECAY;
+      }
+      pivot.rotation.x += velX;
+      pivot.rotation.y += velY;
       angle += CONFIG.spinSpeed;
       pivot.rotation.z = angle;
       renderer.render(scene, camera);
@@ -189,6 +233,10 @@ export function GearDither({ className = "" }: GearDitherProps) {
       disposed = true;
       cancelAnimationFrame(raf);
       renderer.dispose();
+      out.removeEventListener("pointerdown", onDown);
+      out.removeEventListener("pointermove", onMove);
+      out.removeEventListener("pointerup", onUp);
+      out.removeEventListener("pointercancel", onUp);
     };
   }, [size]);
 

@@ -24,6 +24,11 @@ export function GearLogo({
   const mountRef = useRef<HTMLDivElement>(null);
   const hoverRef = useRef(false);
   const materialsRef = useRef<THREE.MeshStandardMaterial[]>([]);
+  const dragRef = useRef(false);
+  const lastXRef = useRef(0);
+  const lastYRef = useRef(0);
+  const velXRef = useRef(0); // pitch
+  const velYRef = useRef(0); // yaw
 
   // Heavy setup — only reruns when size or src changes.
   useEffect(() => {
@@ -116,15 +121,26 @@ export function GearLogo({
       (err) => console.error("GearLogo: failed to load", src, err),
     );
 
+    const DECAY = 0.95;
+
     const tick = (now: number) => {
       raf = requestAnimationFrame(tick);
       const dt = Math.min((now - last) / 1000, 0.1);
       last = now;
 
+      if (dragRef.current) {
+        velXRef.current *= 0.78;
+        velYRef.current *= 0.78;
+      } else {
+        velXRef.current *= DECAY;
+        velYRef.current *= DECAY;
+      }
+      pivot.rotation.x += velXRef.current;
+      pivot.rotation.y += velYRef.current;
+
       const target = autoSpin
         ? reduceMotion ? REST_SPEED : HOVER_SPEED
         : reduceMotion ? 0 : hoverRef.current ? HOVER_SPEED : REST_SPEED;
-
       speed += (target - speed) * Math.min(dt * 8, 1);
       angle += speed * dt;
       pivot.rotation.z = angle;
@@ -169,10 +185,30 @@ export function GearLogo({
     <div
       ref={mountRef}
       className={styles.logo}
-      style={{ width: size, height: size }}
+      style={{ width: size, height: size, touchAction: "none" }}
       aria-hidden="true"
       onPointerEnter={() => { hoverRef.current = true; }}
-      onPointerLeave={() => { hoverRef.current = false; }}
+      onPointerLeave={() => { hoverRef.current = false; dragRef.current = false; }}
+      onPointerDown={(e) => {
+        dragRef.current = true;
+        lastXRef.current = e.clientX;
+        lastYRef.current = e.clientY;
+        velXRef.current = 0;
+        velYRef.current = 0;
+        (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
+        (e.currentTarget as HTMLDivElement).style.cursor = "grabbing";
+      }}
+      onPointerMove={(e) => {
+        if (!dragRef.current) return;
+        velYRef.current += (e.clientX - lastXRef.current) * 0.03;
+        velXRef.current += (e.clientY - lastYRef.current) * 0.03;
+        lastXRef.current = e.clientX;
+        lastYRef.current = e.clientY;
+      }}
+      onPointerUp={(e) => {
+        dragRef.current = false;
+        (e.currentTarget as HTMLDivElement).style.cursor = "grab";
+      }}
     />
   );
 }
