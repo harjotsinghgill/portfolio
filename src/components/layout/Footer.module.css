@@ -2,22 +2,22 @@
   position: relative;
   z-index: 1;
   border-top: 1px solid var(--line);
-  margin-top: 30px;
+  margin-top: var(--space-9);
   background: var(--card);
 }
 .grid {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 48px 22px;
+  padding: var(--space-11) var(--gutter);
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr;
-  gap: 32px;
+  gap: var(--space-9);
 }
 .brand {
   display: flex;
   align-items: center;
-  gap: 11px;
-  margin-bottom: 16px;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
 }
 .brandName {
   font-family: var(--font-mono);
@@ -35,19 +35,18 @@
   font-size: 12px;
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: var(--space-2);
 }
 .colHead {
   color: var(--muted);
-  margin-bottom: 4px;
+  margin-bottom: var(--space-1);
 }
 .col a {
   color: var(--ink);
-  text-decoration: none;
 }
 .legal {
   border-top: 1px solid var(--line);
-  padding: 18px 22px;
+  padding: var(--space-6) var(--gutter);
   max-width: var(--maxw);
   margin: 0 auto;
   display: flex;
@@ -56,7 +55,7 @@
   font-size: 11px;
   color: var(--muted);
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--space-2);
 }
 
 @media (max-width: 720px) {
@@ -65,9 +64,9 @@
   }
   .grid {
     grid-template-columns: 1fr;
-    padding: 32px 16px;
+    padding: var(--space-9) 16px;
   }
   .legal {
-    padding: 18px 16px;
+    padding: var(--space-6) 16px;
   }
 }

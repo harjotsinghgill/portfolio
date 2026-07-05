@@ -27,6 +27,29 @@
   --maxw: 1180px;
   --gutter: 22px;
 
+  /* Spacing scale — derived from values already in use across the app.
+     Consecutive sections/controls should pull from this instead of ad-hoc px. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 14px;
+  --space-5: 16px;
+  --space-6: 18px;
+  --space-7: 20px;
+  --space-8: 24px;
+  --space-9: 32px;
+  --space-10: 40px;
+  --space-11: 48px;
+  --space-12: 64px;
+  --space-13: 88px;
+  --space-14: 120px;
+
+  /* Compact control padding — shared by pill-shaped buttons/chips. */
+  --control-pad-y: 9px;
+
+  /* Text/icon color on accent-filled surfaces. */
+  --on-accent: #fff;
+
   color-scheme: light;
 }
 

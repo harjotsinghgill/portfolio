@@ -23,9 +23,9 @@ const overlay: Variants = {
     clipPath: "inset(0 0 0% 0)",
     backdropFilter: "blur(32px) saturate(1.7)",
     transition: {
-      duration: 0.52,
+      duration: 0.25,
       ease: spring,
-      staggerChildren: 0.07,
+      staggerChildren: 0.02,
       delayChildren: 0.18,
     },
   },
@@ -34,9 +34,9 @@ const overlay: Variants = {
     clipPath: "inset(0 0 100% 0)",
     backdropFilter: "blur(0px) saturate(1)",
     transition: {
-      duration: 0.38,
+      duration: 0.25,
       ease: sharp,
-      staggerChildren: 0.04,
+      staggerChildren: 0.02,
       staggerDirection: -1,
     },
   },

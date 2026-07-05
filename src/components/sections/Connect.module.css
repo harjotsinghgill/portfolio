@@ -8,15 +8,14 @@
 .links {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 40px;
+  gap: var(--space-4);
+  margin-top: var(--space-10);
   font-family: var(--font-mono);
   font-size: 14px;
 }
 .link {
-  text-decoration: none;
   color: var(--ink);
-  padding: 14px 22px;
+  padding: var(--space-4) 22px;
   border-radius: 30px;
 }
 .primary {

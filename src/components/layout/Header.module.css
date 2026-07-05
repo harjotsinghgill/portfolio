@@ -7,17 +7,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 22px;
+  padding: var(--space-4) var(--gutter);
   border-bottom: 1px solid var(--line);
   background: color-mix(in srgb, var(--bg) 86%, transparent);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  transition: background 0.3s ease, border-color 0.3s ease;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
 }
 .controls {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-2);
 }
 
 /* Fade transitions on all direct header children + control chips */
@@ -50,7 +52,9 @@
 
 .menuBtnContent > span {
   grid-area: 1 / 1;
-  transition: opacity 0.22s ease, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    opacity 0.22s ease,
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* MENU slides up when hidden */

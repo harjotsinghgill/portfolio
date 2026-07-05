@@ -154,6 +154,5 @@ export const connectLinks: SocialLink[] = [
 export const footerSocials: SocialLink[] = [
   { label: "→ GitHub", href: "https://github.com/harjotsinghgill" },
   { label: "→ LinkedIn", href: "https://linkedin.com/in/harjotsinghgill007" },
-  { label: "→ Twitter / X", href: "#" },
   { label: "→ Résumé", href: `${import.meta.env.BASE_URL}resume.pdf` },
 ];

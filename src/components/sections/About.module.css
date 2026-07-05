@@ -4,19 +4,19 @@
   position: relative;
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  gap: 16px;
+  gap: var(--space-5);
   align-items: stretch;
 }
 
 .card {
   border-radius: 20px;
-  padding: 28px;
+  padding: var(--space-9);
 }
 
 .col {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-5);
 }
 
 /* --- Left identity card --- */
@@ -32,7 +32,7 @@
   position: relative;
   width: min(74%, 280px);
   aspect-ratio: 1;
-  margin-bottom: 18px;
+  margin-bottom: var(--space-6);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,7 +57,9 @@
   object-position: center 20%;
   transform: scale(1.5);
   filter: grayscale(1) contrast(1.05);
-  transition: filter 0.4s ease, transform 0.4s ease;
+  transition:
+    filter 0.4s ease,
+    transform 0.4s ease;
 }
 .portrait:hover img {
   filter: grayscale(0);
@@ -73,16 +75,15 @@
   font-family: var(--font-mono);
   font-size: 13px;
   color: var(--muted);
-  text-decoration: none;
   transition: color 0.2s ease;
 }
 .email:hover {
   color: var(--accent);
 }
 .cta {
-  margin-top: 18px;
+  margin-top: var(--space-6);
   font-size: 12px;
-  padding: 12px 22px;
+  padding: var(--space-3) 22px;
   border-radius: 24px;
 }
 
@@ -91,7 +92,7 @@
   font-size: clamp(22px, 2.6vw, 30px);
   font-weight: 700;
   letter-spacing: -0.02em;
-  margin: 0 0 12px;
+  margin: 0 0 var(--space-3);
 }
 .status {
   font-size: 11px;
@@ -100,7 +101,7 @@
   font-size: clamp(14px, 1.4vw, 16px);
   line-height: 1.6;
   color: var(--ink);
-  margin: 16px 0 0;
+  margin: var(--space-5) 0 0;
 }
 .hl {
   color: var(--accent);
@@ -117,21 +118,20 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
-  margin: 0 0 14px;
+  margin: 0 0 var(--space-4);
 }
 .subTitle:not(:first-child) {
-  margin-top: 26px;
+  margin-top: var(--space-9);
 }
 .roles {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: var(--space-4);
 }
 .role {
   display: flex;
   align-items: center;
-  gap: 14px;
-  text-decoration: none;
+  gap: var(--space-4);
   color: inherit;
   transition: opacity 0.2s ease;
 }
@@ -173,19 +173,19 @@ a.role:hover {
 .stack {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--space-2);
 }
 .chip {
   font-family: var(--font-mono);
   font-size: 12px;
-  padding: 7px 12px;
+  padding: var(--space-2) var(--space-3);
   border-radius: 18px;
   border: 1px solid var(--glass-border);
   color: var(--ink);
 }
 .chipAccent {
   background: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
   border-color: transparent;
   font-weight: 700;
 }
@@ -201,10 +201,14 @@ a.role:hover {
   animation: spin 18s linear infinite;
 }
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .badge { animation: none; }
+  .badge {
+    animation: none;
+  }
 }
 .badgeText {
   font-family: var(--font-mono);
